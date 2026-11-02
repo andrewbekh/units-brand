@@ -126,6 +126,7 @@ section { padding: clamp(80px, 10vw, 150px) 0; position: relative; }
 }
 .hero-main { display: grid; align-content: center; gap: 28px; padding-top: 100px; width: 100%; }
 .hero h1 { font-size: clamp(110px, min(23vw, 28svh), 380px); line-height: .8; }
+@media (max-width: 700px) { .hero h1 { font-size: 45vw; } }
 .hero h1 em { color: var(--pink); }
 .hero-foot { display: flex; justify-content: space-between; align-items: end; gap: 24px; padding-bottom: 28px; flex-wrap: wrap; }
 
