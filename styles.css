@@ -211,6 +211,8 @@ section { padding: clamp(80px, 10vw, 150px) 0; position: relative; }
 .dd.ok p::before { content: "✓  "; color: var(--green); }
 .s-ink .dd p::before { color: var(--mint); }
 
+.warn { margin: 24px 0 0; max-width: none; padding: 14px 18px; background: var(--yellow); color: var(--ink); font-weight: 700; }
+
 /* ── 04 Колір ──────────────────────────────── */
 .swatch {
   border: 0; text-align: left; cursor: pointer;

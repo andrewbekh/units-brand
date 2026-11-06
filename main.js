@@ -50,9 +50,14 @@ new IntersectionObserver(([en]) => btn.classList.toggle('in-section', !en.isInte
 // Відео грають тільки у видимій зоні
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (!reduceMotion) {
+  const inView = new Set();
   const vio = new IntersectionObserver(entries => entries.forEach(en => {
-    if (en.isIntersecting) en.target.play().catch(() => {});
-    else en.target.pause();
+    if (en.isIntersecting) { inView.add(en.target); en.target.play().catch(() => {}); }
+    else { inView.delete(en.target); en.target.pause(); }
   }), { rootMargin: '100px 0px' });
   document.querySelectorAll('video.clip').forEach(v => vio.observe(v));
+  // Якщо вкладка була прихована, запускаємо видимі відео заново
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) inView.forEach(v => v.play().catch(() => {}));
+  });
 }
