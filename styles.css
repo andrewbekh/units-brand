@@ -318,6 +318,18 @@ section { padding: clamp(80px, 10vw, 150px) 0; position: relative; }
 .rule { display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 18px 0; border-top: 1px solid rgb(255 255 255 / .2); }
 .rule b { font: 400 40px/.9 var(--display); color: var(--mint); }
 
+/* ── 08 Відео ──────────────────────────────── */
+.fx { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 32px; padding: 32px 0; border-top: 1px solid rgb(1 43 46 / .2); }
+.fx-text { display: grid; gap: 12px; align-content: start; }
+.fx-text .d { font-size: clamp(44px, 4.4vw, 64px); }
+.fx-text p { margin: 0; }
+.fx-text dl { margin: 0; display: grid; gap: 2px; font-size: 15px; }
+.fx-text dt { font-weight: 700; margin-top: 8px; }
+.fx-text dd { margin: 0; }
+.clips { display: flex; flex-wrap: wrap; gap: 8px; align-content: start; }
+.clip { flex: var(--ar) 1 calc(var(--ar) * 170px); max-width: calc(var(--ar) * 440px); min-width: 0; aspect-ratio: var(--ar); object-fit: cover; display: block; background: var(--green); }
+@media (max-width: 800px) { .fx { grid-template-columns: minmax(0, 1fr); gap: 20px; } .clip { flex-basis: 100%; max-width: 100%; } }
+
 /* ── 08 Формати ────────────────────────────── */
 .formats { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 300px)); justify-content: space-between; align-items: end; }
 .fmt { display: grid; gap: 14px; }

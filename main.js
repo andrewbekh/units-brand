@@ -46,3 +46,13 @@ document.querySelectorAll('section[data-label]:not(#top)').forEach(s => io.obser
 // На першому екрані кнопка з лого, після нього бургер і назва розділу
 new IntersectionObserver(([en]) => btn.classList.toggle('in-section', !en.isIntersecting), { rootMargin: '-70px 0px 0px 0px' })
   .observe(document.getElementById('top'));
+
+// Відео грають тільки у видимій зоні
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!reduceMotion) {
+  const vio = new IntersectionObserver(entries => entries.forEach(en => {
+    if (en.isIntersecting) en.target.play().catch(() => {});
+    else en.target.pause();
+  }), { rootMargin: '100px 0px' });
+  document.querySelectorAll('video.clip').forEach(v => vio.observe(v));
+}
